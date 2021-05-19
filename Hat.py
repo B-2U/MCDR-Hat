@@ -6,7 +6,7 @@ PLUGIN_METADATA = {
 	'version': '1.0.0',
 	'name': '!!hat',
 	'author': '_GieR',
-	'link': 'https://github.com/alexkao1439/MCDR-Hat',
+	'link': 'https://github.com/B-2U/MCDR-Hat',
 	'dependencies': {
 		'minecraft_data_api': '*',
 	}
