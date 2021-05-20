@@ -26,8 +26,8 @@ def put_on(source: CommandSource):
 	if not len(head_slotinfo):
 		head_slotinfo = None
 
-	item1 = slot_item_decode(selected_slotinfo[0])
-	item2 = slot_item_decode(head_slotinfo[0])
+	item1 = slot_item_decode(selected_slotinfo)
+	item2 = slot_item_decode(head_slotinfo)
 	if not item1:
 		item1 = item_air()
 	if not item2:
@@ -43,13 +43,14 @@ def pack_repitem(player, slot, item):
         return f'replaceitem entity {player} {str(slot)} {item["id"]}{item["tag"]} {str(item["count"])}'
 
 def slot_item_decode(info):
-        count = info['Count']
-        id = info['id']
-        tag = json.dumps(info['tag']) if 'tag' in info else ''
-        return {'count': count, 'id': id, 'tag': tag}
-
-def item_air():
+    if info == None:
         return {'id': 'minecraft:air', 'count': 1, 'tag': ''}
+    info = info[0]
+    count = info['Count']
+    id = info['id']
+    tag = json.dumps(info['tag']) if 'tag' in info else ''
+    return {'count': count, 'id': id, 'tag': tag}
+
 
 def on_load(server: ServerInterface, prev):
 	check_and_put = lambda src: put_on(source) if src.is_player else src.reply('§c該命令只能被玩家使用。')
