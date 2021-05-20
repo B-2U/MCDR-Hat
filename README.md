@@ -1,3 +1,5 @@
 # MCDR-Hat
-輸入!!hat 將手上跟頭上的物品交換位置  
-for MCDR 1.x, require `minecraft_data_api`
+## 前置 / Requirement
+- [MinecraftDataAPI](https://github.com/MCDReforged/MinecraftDataAPI)
+## 指令 / Command
+- `!!hat` 將手上跟頭上的物品交換位置 / Swap the item on your hand and head
