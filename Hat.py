@@ -15,7 +15,7 @@ PLUGIN_METADATA = {
 
 @new_thread(PLUGIN_METADATA['name'])
 def put_on(source: CommandSource):
-    if not isinstance(source, PlayerCommandSource):
+    if not source.is_player:
         source.reply('§c該命令只能被玩家使用')
         return
     api = source.get_server().get_plugin_instance('minecraft_data_api')
