@@ -40,7 +40,7 @@ def put_on(source: CommandSource):
 	execute(pack_repitem(source.player, slot1, item2))
 
 def pack_repitem(player, slot, item):
-        return f'replaceitem entity {player} {str(slot)} {item['id']}{item['tag']} {str(item['count'])}'
+        return f'replaceitem entity {player} {str(slot)} {item["id"]}{item["tag"]} {str(item["count"])}'
 
 def slot_item_decode(info):
         count = info['Count']
