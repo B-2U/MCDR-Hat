@@ -17,6 +17,7 @@ PLUGIN_METADATA = {
 def put_on(source: CommandSource):
     if not isinstance(source, PlayerCommandSource):
         source.reply('§c該命令只能被玩家使用')
+        return
     api = source.get_server().get_plugin_instance('minecraft_data_api')
 
     selected_slot = api.get_player_info(source.player, 'SelectedItemSlot')
@@ -36,6 +37,9 @@ def put_on(source: CommandSource):
     slot1 = 'container.'+str(selected_slot)
     slot2 = 'armor.head'
 
+    if item1['id'].endswith(('boots', 'leggings', 'chestplate', 'Elytra')):
+        source.reply('§c其他部位的物品無法裝備到頭上')
+        return
     execute = source.get_server().execute
     execute(pack_repitem(source.player, slot2, item1))
     execute(pack_repitem(source.player, slot1, item2))
