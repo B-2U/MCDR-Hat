@@ -37,7 +37,7 @@ def put_on(source: CommandSource):
     slot1 = 'container.'+str(selected_slot)
     slot2 = 'armor.head'
 
-    if item1['id'].endswith(('boots', 'leggings', 'chestplate', 'Elytra')):
+    if item1['id'].endswith(('boots', 'leggings', 'chestplate', 'elytra')):
         source.reply('§c其他部位的物品無法裝備到頭上')
         return
     execute = source.get_server().execute
